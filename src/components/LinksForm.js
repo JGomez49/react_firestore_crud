@@ -17,24 +17,24 @@ const LinksForm = (props) => {
     setValues({ ...values, [name]: value });
   };
 
-  const validURL = (str) => {
-    var pattern = new RegExp(
-      "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-        "(\\#[-a-z\\d_]*)?$",
-      "i"
-    ); // fragment locator
-    return !!pattern.test(str);
-  };
+  // const validURL = (str) => {
+  //   var pattern = new RegExp(
+  //     "^(https?:\\/\\/)?" + // protocol
+  //     "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+  //     "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+  //     "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+  //     "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+  //       "(\\#[-a-z\\d_]*)?$",
+  //     "i"
+  //   ); // fragment locator
+  //   return !!pattern.test(str);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validURL(values.url)) {
-      return toast("invalid url", { type: "warning", autoClose: 1000 });
-    }
+    // if (!validURL(values.url)) {
+    //   return toast("invalid url", { type: "warning", autoClose: 1000 });
+    // }
     props.addOrEditLink(values);
     setValues({ ...initialStateValues });
   };
@@ -57,12 +57,12 @@ const LinksForm = (props) => {
     <form onSubmit={handleSubmit} className="card card-body border-primary">
       <div className="form-group input-group">
         <div className="input-group-text bg-dark">
-          <i className="material-icons">insert_link</i>
+          <i className="material-icons">place</i>
         </div>
         <input
           type="text"
           className="form-control"
-          placeholder="https://someurl.xyz"
+          placeholder="MTR"
           value={values.url}
           name="url"
           onChange={handleInputChange}
@@ -70,13 +70,13 @@ const LinksForm = (props) => {
       </div>
       <div className="form-group input-group">
         <div className="input-group-text bg-dark">
-          <i className="material-icons">create</i>
+          <i className="material-icons">settings_remote</i>
         </div>
         <input
           type="text"
           value={values.name}
           name="name"
-          placeholder="Website Name"
+          placeholder="NDE"
           className="form-control"
           onChange={handleInputChange}
         />
